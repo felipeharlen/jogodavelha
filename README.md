@@ -1,5 +1,3 @@
-Peço desculpas pela confusão. Vamos ajustar a seção para incorporar a imagem de exemplo (`printscreen.png`). Aqui está a versão revisada:
-
 ```markdown
 # Jogo da Velha com Flask
 
