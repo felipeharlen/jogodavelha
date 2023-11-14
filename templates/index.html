@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Jogo da Velha</h1>
+    
+    <table>
+        <tr>
+            <td onclick="fazerJogada(1)">{{ tabuleiro[0] }}</td>
+            <td onclick="fazerJogada(2)">{{ tabuleiro[1] }}</td>
+            <td onclick="fazerJogada(3)">{{ tabuleiro[2] }}</td>
+        </tr>
+        <tr>
+            <td onclick="fazerJogada(4)">{{ tabuleiro[3] }}</td>
+            <td onclick="fazerJogada(5)">{{ tabuleiro[4] }}</td>
+            <td onclick="fazerJogada(6)">{{ tabuleiro[5] }}</td>
+        </tr>
+        <tr>
+            <td onclick="fazerJogada(7)">{{ tabuleiro[6] }}</td>
+            <td onclick="fazerJogada(8)">{{ tabuleiro[7] }}</td>
+            <td onclick="fazerJogada(9)">{{ tabuleiro[8] }}</td>
+        </tr>
+    </table>
+
+    <p>Jogador Atual: <strong>{{ jogador_atual }}</strong></p>
+    <p class="message">{{ mensagem }} </p>
+
+    <form action="/reiniciar_jogo" method="post">
+        <button type="submit">Reiniciar Jogo</button>
+    </form>
+
+    <script>
+        function fazerJogada(posicao) {
+            fetch('/fazer_jogada', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `posicao=${posicao}`,
+            })
+            .then(response => response.text())
+            .then(html => {
+                document.body.innerHTML = html;
+            });
+        }
+    </script>
+</body>
+</html>
