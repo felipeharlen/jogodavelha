@@ -1,6 +1,3 @@
-Peço desculpas pela confusão. Vamos ajustar a seção para incorporar a imagem de exemplo (`printscreen.png`). Aqui está a versão revisada:
-
-```markdown
 # Jogo da Velha com Flask
 
 Este é um simples jogo da velha implementado em Python usando o framework Flask para criar uma aplicação web. Os jogadores podem se divertir jogando alternadamente em um ambiente amigável.
